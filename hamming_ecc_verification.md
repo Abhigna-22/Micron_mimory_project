@@ -162,25 +162,29 @@ Verify that all double-bit errors are reliably detected and that no correction i
 ```verilog
 corrupted_code = code_out ^ ((1 << bit_pos1) | (1 << bit_pos2));
 ```
-Bit Constraints
+
+### Bit Constraints
 0 ≤ bit_pos1 < bit_pos2 < 13
 Ensures exactly two flipped bits
 No overlap with single-bit error cases
 
-Checks per Case
+
+### Checks per Case
 Decoder asserts the error flag
 Decoder does not attempt correction
 Output must not be trusted
 No silent data correction allowed
 
-Test Conditions
+
+### Test Conditions
 
 Simulator: Icarus Verilog
 Timescale: 1 ns / 1 ps
 Settle delay: 1 ns
 Clocking: None (pure combinational logic)
 
-Results
+
+### Results
 Metric	Value
 Codeword bits	13
 Double-bit combinations per input	C(13,2) = 78
@@ -190,9 +194,10 @@ Missed detections	0
 Silent corrections	0
 
 ### Simulation Output
+```
 Starting 4.4 Double-Bit Error Detection Test
 PASS: 4.4 Double-Bit Error Detection Test
-
+```
 ### Observations
 All injected double-bit errors were detected
 No correction was applied in any double-bit scenario
@@ -200,10 +205,11 @@ Syndrome aliasing cases correctly blocked correction
 Error detection safely dominates over correction logic
 No silent data corruption observed
 
-Conclusion
+### Conclusion
 
 The verification confirms that the (13,8) Hamming SECDED implementation is functionally correct and robust.
 Single-bit errors are always corrected, double-bit errors are always detected, and silent data corruption is fully prevented.
 This completes full functional verification of the ECC design.
+
 
 
