@@ -124,7 +124,7 @@ Summary:
 Total correction cases tested:
 - 256 inputs × 13 bit positions = 3328 case
 ****************************************************************************************************************************
-4.4 Double-Bit Error Detection Test (DED)
+##4.4 Double-Bit Error Detection Test (DED)
 Objective
 To verify that the Hamming decoder reliably detects all double-bit errors in the encoded codeword and does not perform any correction, thereby preventing silent data corruption.
 This test validates the DED (Double Error Detection) property of the SECDED implementation.
@@ -188,8 +188,8 @@ Silent corrections observed			0
 
 
 Simulation output confirms successful completion:
-
-Starting 4.4 Double-Bit Error Detection Test
+**********************************************************************************************************************************************************
+##Starting 4.4 Double-Bit Error Detection Test
 PASS: 4.4 Double-Bit Error Detection Test
 
 Result
@@ -206,4 +206,5 @@ No silent data corruption was observed.
 Conclusion
 
 The double-bit error detection test confirms that the Hamming decoder correctly implements the DED requirement of SECDED. All double-bit errors are reliably detected, and the decoder safely refrains from performing correction when error certainty is lost. This ensures robust protection against silent data corruption and completes full functional verification of the ECC design.
+
 *****************************************************************************************************************************
